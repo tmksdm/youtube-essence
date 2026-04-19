@@ -1,0 +1,122 @@
+/* content.css — стили встроенного сайдбара YouTube Essence */
+
+/* === СВЕТЛАЯ ТЕМА (по умолчанию) === */
+
+#yt-essence-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  z-index: 9999;
+  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+#yt-essence-panel.yt-essence-hidden {
+  transform: translateX(100%);
+}
+
+.yt-essence-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+.yt-essence-title {
+  color: #6B2FA0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.yt-essence-close {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.yt-essence-close:hover {
+  background-color: #e8e8e8;
+  color: #000;
+}
+
+.yt-essence-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.yt-essence-body p {
+  margin-bottom: 8px;
+}
+
+.yt-essence-hint {
+  color: #888;
+  font-size: 12px;
+}
+
+/* === ТЁМНАЯ ТЕМА === */
+
+@media (prefers-color-scheme: dark) {
+  #yt-essence-panel {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.4);
+    border-left: 1px solid #2a2a4a;
+  }
+
+  .yt-essence-header {
+    background-color: #16213e;
+    border-bottom: 1px solid #2a2a4a;
+  }
+
+  .yt-essence-title {
+    color: #bb86fc;
+  }
+
+  .yt-essence-close {
+    color: #888;
+  }
+
+  .yt-essence-close:hover {
+    background-color: #2a2a4a;
+    color: #fff;
+  }
+}
+
+/* === СДВИГ КОНТЕНТА YOUTUBE === */
+
+html.yt-essence-active ytd-app {
+  margin-right: 360px !important;
+  transition: margin-right 0.3s ease;
+}
+
+html ytd-app {
+  transition: margin-right 0.3s ease;
+}
+
+html.yt-essence-active #masthead-container {
+  width: calc(100% - 360px) !important;
+  transition: width 0.3s ease;
+}
+
+#masthead-container {
+  transition: width 0.3s ease;
+}
